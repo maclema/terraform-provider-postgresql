@@ -21,6 +21,9 @@ testacc_cleanup: fmtcheck
 testacc: fmtcheck
 	@sh -c "'$(CURDIR)/tests/testacc_full.sh'"
 
+testacc-all: fmtcheck
+	@sh -c "'$(CURDIR)/tests/testacc_all.sh'"
+
 vet:
 	@echo "go vet ."
 	@go vet $$(go list ./...) ; if [ $$? -eq 1 ]; then \
@@ -36,5 +39,5 @@ fmt:
 fmtcheck:
 	@sh -c "'$(CURDIR)/scripts/gofmtcheck.sh'"
 
-.PHONY: build test testacc vet fmt fmtcheck
+.PHONY: build test testacc testacc-all vet fmt fmtcheck
 
