@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         pgversion: [18, 17, 16, 15, 14, 13, 12]
 
