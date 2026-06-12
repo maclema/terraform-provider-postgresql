@@ -46,6 +46,7 @@ const (
 	featureServer
 	featureCreateRoleSelfGrant
 	featureSecurityLabel
+	featurePrivilegeMaintain
 )
 
 var (
@@ -122,6 +123,12 @@ var (
 		// https://www.postgresql.org/docs/16/release-16.html#RELEASE-16-PRIVILEGES
 		featureCreateRoleSelfGrant: semver.MustParseRange(">=16.0.0"),
 		featureSecurityLabel:       semver.MustParseRange(">=11.0.0"),
+
+		// MAINTAIN privilege for tables (VACUUM, ANALYZE, REINDEX, etc.).
+		// It was briefly added during PostgreSQL 16 development but reverted,
+		// and finally shipped in PostgreSQL 17.
+		// https://www.postgresql.org/docs/17/release-17.html
+		featurePrivilegeMaintain: semver.MustParseRange(">=17.0.0"),
 	}
 )
 
