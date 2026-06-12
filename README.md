@@ -59,10 +59,14 @@ $ make test
 In order to run the full suite of Acceptance tests, run `make testacc`.
 
 *Note:* 
-- Acceptance tests create real resources, and often cost money to run.
+- Acceptance tests create real resources in a local PostgreSQL instance (see below to spin one up with Docker).
 
 ```sh
+# Run acceptance tests against the latest postgres version
 $ make testacc
+
+# Run acceptance tests against all supported postgres versions
+$ make testacc-all
 ```
 
 In order to manually run some Acceptance test locally, run the following commands:
